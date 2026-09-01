@@ -1,1 +1,103 @@
-local _a=game:GetService(string.char(80,108,97,121,101,114,115))local _b=game:GetService(string.char(82,117,110,83,101,114,118,105,99,101))local _c=game:GetService(string.char(67,111,114,101,71,117,105))local _d=_a.LocalPlayer local _e=Instance.new(string.char(83,99,114,101,101,110,71,117,105))_e.Name=string.char(68,121,110,97,109,105,99,66,97,114,72,85,68)_e.IgnoreGuiInset=true _e.ResetOnSpawn=false _e.ZIndexBehavior=Enum.ZIndexBehavior.Sibling local _f=pcall(function()_e.Parent=_c end)if not _f then _e.Parent=_d:WaitForChild(string.char(80,108,97,121,101,114,71,117,105))end local _g=Instance.new(string.char(70,114,97,109,101))_g.Name=string.char(72,85,68,67,111,110,116,97,105,110,101,114)_g.Size=UDim2.new(0,295,0,42)_g.Position=UDim2.new(0,173,0,13)_g.BackgroundColor3=Color3.fromRGB(15,15,15)_g.BackgroundTransparency=0.10 _g.BorderSizePixel=0 _g.Parent=_e local _h=Instance.new(string.char(85,73,67,111,114,110,101,114))_h.CornerRadius=UDim.new(1,0)_h.Parent=_g local _i=Instance.new(string.char(85,73,83,116,114,111,107,101))_i.Color=Color3.fromRGB(15,15,15)_i.Transparency=0.10 _i.Thickness=1 _i.Parent=_g local _j=Instance.new(string.char(84,101,120,116,76,97,98,101,108))_j.Name=string.char(73,110,102,111,76,97,98,101,108)_j.Size=UDim2.new(1,-20,1,0)_j.Position=UDim2.new(0,10,0,0)_j.BackgroundTransparency=1 _j.Font=Enum.Font.GothamMedium _j.TextSize=14 _j.TextColor3=Color3.fromRGB(245,245,245)_j.TextXAlignment=Enum.TextXAlignment.Center _j.TextYAlignment=Enum.TextYAlignment.Center _j.Parent=_g local _k=0 local _l=0.2 local _m=nil local _n=tick()local _o=nil _b.RenderStepped:Connect(function()local _p=tick()if _p-_k<_l then return end local _q=_p-_n _n=_p _k=_p local _r=_d.Character local _s=0 local _t=0 local _u,_v,_w=0,0,0 if _r then local _x=_r:FindFirstChild(string.char(72,117,109,97,110,111,105,100,82,111,111,116,80,97,114,116))if _x then local _y=_x.Position _u=math.floor(_y.X+0.5)_v=math.floor(_y.Y+0.5)_w=math.floor(_y.Z+0.5)if _m and _q>0 then local _z=(Vector3.new(_y.X,0,_y.Z)-Vector3.new(_m.X,0,_m.Y)).Magnitude _s=math.floor((_z/_q)+0.5)end _m=Vector2.new(_y.X,_y.Z)local _A=_x.CFrame if _o and _q>0 then local _B,_C=_A:ToEulerAnglesYXZ()local _B,_D=_o:ToEulerAnglesYXZ()local _E=math.abs(_C-_D)if _E>math.pi then _E=(math.pi*2)-_E end _t=math.floor(((_E/_q)*(180/math.pi))+0.5)end _o=_A end end _j.Text=string.format(string.char(83,112,101,101,100,58,32,37,100,32,124,32,82,111,116,58,32,37,100,32,124,32,88,58,32,37,100,32,89,58,32,37,100,32,90,58,32,37,100),_s,_t,_u,_v,_w)end)
+-- by 31k_MertYT
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local CoreGui = game:GetService("CoreGui")
+
+local player = Players.LocalPlayer
+
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "DynamicBarHUD"
+screenGui.IgnoreGuiInset = true
+screenGui.ResetOnSpawn = false
+screenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+local success = pcall(function()
+	screenGui.Parent = CoreGui
+end)
+
+if not success then
+	screenGui.Parent = player:WaitForChild("PlayerGui")
+end
+
+local container = Instance.new("Frame")
+container.Name = "HUDContainer"
+container.Size = UDim2.new(0, 300, 0, 42)
+container.Position = UDim2.new(0, 173, 0, 13)
+container.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+container.BackgroundTransparency = 0.10
+container.BorderSizePixel = 0
+container.Parent = screenGui
+
+local corner = Instance.new("UICorner")
+corner.CornerRadius = UDim.new(1, 0)
+corner.Parent = container
+
+local stroke = Instance.new("UIStroke")
+stroke.Color = Color3.fromRGB(255, 255, 255)
+stroke.Transparency = 1
+stroke.Thickness = 1
+stroke.Parent = container
+
+local label = Instance.new("TextLabel")
+label.Name = "InfoLabel"
+label.Size = UDim2.new(1, -20, 1, 0)
+label.Position = UDim2.new(0, 10, 0, 0)
+label.BackgroundTransparency = 1
+label.Font = Enum.Font.GothamMedium
+label.TextSize = 14
+label.TextColor3 = Color3.fromRGB(245, 245, 245)
+label.TextXAlignment = Enum.TextXAlignment.Center
+label.TextYAlignment = Enum.TextYAlignment.Center
+label.Parent = container
+
+local lastUpdate = 0
+local updateInterval = 0.2
+local lastPos = nil
+local lastTick = tick()
+local lastCFrame = nil
+
+RunService.RenderStepped:Connect(function()
+	local currentTime = tick()
+	if currentTime - lastUpdate < updateInterval then
+		return
+	end
+	
+	local deltaTime = currentTime - lastTick
+	lastTick = currentTime
+	lastUpdate = currentTime
+
+	local character = player.Character
+	local speedVal = 0
+	local rotSpeedVal = 0
+	local xVal, yVal, zVal = 0, 0, 0
+
+	if character then
+		local rootPart = character:FindFirstChild("HumanoidRootPart")
+		if rootPart then
+			local currentPos = rootPart.Position
+			xVal = math.floor(currentPos.X + 0.5)
+			yVal = math.floor(currentPos.Y + 0.5)
+			zVal = math.floor(currentPos.Z + 0.5)
+
+			if lastPos and deltaTime > 0 then
+				local displacement = (Vector3.new(currentPos.X, 0, currentPos.Z) - Vector3.new(lastPos.X, 0, lastPos.Y)).Magnitude
+				speedVal = math.floor((displacement / deltaTime) + 0.5)
+			end
+			lastPos = Vector2.new(currentPos.X, currentPos.Z)
+
+			local currentCF = rootPart.CFrame
+			if lastCFrame and deltaTime > 0 then
+				local _, currentYRot = currentCF:ToEulerAnglesYXZ()
+				local _, lastYRot = lastCFrame:ToEulerAnglesYXZ()
+				local angleDiff = math.abs(currentYRot - lastYRot)
+				if angleDiff > math.pi then
+					angleDiff = (math.pi * 2) - angleDiff
+				end
+				rotSpeedVal = math.floor(((angleDiff / deltaTime) * (180 / math.pi)) + 0.5)
+			end
+			lastCFrame = currentCF
+		end
+	end
+
+	label.Text = string.format("Speed: %d | Rot: %d | X: %d Y: %d Z: %d", speedVal, rotSpeedVal, xVal, yVal, zVal)
+end)
