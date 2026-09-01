@@ -1,1 +1,175 @@
-local _a=game:GetService(string.char(80,108,97,121,101,114,115))local _b=game:GetService(string.char(67,111,114,101,71,117,105))local _c=game:GetService(string.char(84,119,101,101,110,83,101,114,118,105,99,101))local _d=_a.LocalPlayer local _e=Instance.new(string.char(83,99,114,101,101,110,71,117,105))_e.Name=string.char(76,111,97,100,105,110,103,83,99,114,101,101,110,71,117,105)_e.IgnoreGuiInset=true _e.ResetOnSpawn=false _e.ZIndexBehavior=Enum.ZIndexBehavior.Sibling local _f=pcall(function()_e.Parent=_b end)if not _f then _e.Parent=_d:WaitForChild(string.char(80,108,97,121,101,114,71,117,105))end local _g=Instance.new(string.char(70,114,97,109,101))_g.Name=string.char(66,97,99,107,103,114,111,117,110,100)_g.Size=UDim2.new(1,0,1,0)_g.BackgroundColor3=Color3.fromRGB(10,10,10)_g.BorderSizePixel=0 _g.Parent=_e local _h=Instance.new(string.char(70,114,97,109,101))_h.Name=string.char(67,101,110,116,101,114,67,111,110,116,97,105,110,101,114)_h.Size=UDim2.new(0,260,0,220)_h.AnchorPoint=Vector2.new(0.5,0.5)_h.Position=UDim2.new(0.5,0,0.5,0)_h.BackgroundTransparency=1 _h.Parent=_g local _i=Instance.new(string.char(85,73,76,105,115,116,76,97,121,111,117,116))_i.HorizontalAlignment=Enum.HorizontalAlignment.Center _i.SortOrder=Enum.SortOrder.LayoutOrder _i.Padding=UDim.new(0,8)_i.Parent=_h local _j=Instance.new(string.char(73,109,97,103,101,76,97,98,101,108))_j.Name=string.char(80,114,111,102,105,108,101,80,105,99,116,117,114,101)_j.Size=UDim2.new(0,64,0,64)_j.LayoutOrder=1 _j.BackgroundColor3=Color3.fromRGB(30,30,30)_j.BorderSizePixel=0 _j.Image=""_j.Parent=_h local _k=Instance.new(string.char(85,73,67,111,114,110,101,114))_k.CornerRadius=UDim.new(1,0)_k.Parent=_j local _l=Instance.new(string.char(85,73,83,116,114,111,107,101))_l.Color=Color3.fromRGB(255,255,255)_l.Transparency=0.7 _l.Thickness=1.5 _l.Parent=_j local _m=string.char(51,49,107,95,77,101,114,116,89,84)task.spawn(function()local _n,_o=pcall(function()return _a:GetUserIdFromNameAsync(_m)end)local _p=_n and _o or 1 local _q=Enum.ThumbnailType.HeadShot local _r=Enum.ThumbnailSize.Size420x420 local _s,_t=_a:GetUserThumbnailAsync(_p,_q,_r)if _t then _j.Image=_s end end)local _u=Instance.new(string.char(84,101,120,116,76,97,98,101,108))_u.Name=string.char(68,105,115,112,108,97,121,78,97,109,101)_u.Size=UDim2.new(1,0,0,20)_u.LayoutOrder=2 _u.BackgroundTransparency=1 _u.Font=Enum.Font.GothamBold _u.TextSize=15 _u.TextColor3=Color3.fromRGB(245,245,245)_u.Text=string.char(109,101,114,116,98,101,121)_u.Parent=_h local _v=Instance.new(string.char(84,101,120,116,76,97,98,101,108))_v.Name=string.char(85,115,101,114,110,97,109,101)_v.Size=UDim2.new(1,0,0,16)_v.LayoutOrder=3 _v.BackgroundTransparency=1 _v.Font=Enum.Font.Gotham _v.TextSize=11 _v.TextColor3=Color3.fromRGB(160,160,160)_v.Text=string.char(64).._m _v.Parent=_h local _w=Instance.new(string.char(70,114,97,109,101))_w.Size=UDim2.new(1,0,0,6)_w.BackgroundTransparency=1 _w.LayoutOrder=4 _w.Parent=_h local _x=Instance.new(string.char(84,101,120,116,76,97,98,101,108))_x.Name=string.char(83,116,97,116,117,115,84,101,120,116)_x.Size=UDim2.new(1,0,0,18)_x.LayoutOrder=5 _x.BackgroundTransparency=1 _x.Font=Enum.Font.GothamMedium _x.TextSize=18 _x.TextColor3=Color3.fromRGB(200,200,200)_x.Text=string.char(83,116,97,114,116,105,110,103,32,65,110,116,105)_x.Parent=_h local _y=Instance.new(string.char(70,114,97,109,101))_y.Name=string.char(66,97,114,66,97,99,107,103,114,111,117,110,100)_y.Size=UDim2.new(1,-30,0,5)_y.LayoutOrder=6 _y.BackgroundColor3=Color3.fromRGB(35,35,35)_y.BorderSizePixel=0 _y.Parent=_h local _z=Instance.new(string.char(85,73,67,111,114,110,101,114))_z.CornerRadius=UDim.new(1,0)_z.Parent=_y local _A=Instance.new(string.char(70,114,97,109,101))_A.Name=string.char(66,97,114,70,105,108,108)_A.Size=UDim2.new(0,0,1,0)_A.BackgroundColor3=Color3.fromRGB(255,255,255)_A.BorderSizePixel=0 _A.Parent=_y local _B=Instance.new(string.char(85,73,67,111,114,110,101,114))_B.CornerRadius=UDim.new(1,0)_B.Parent=_A task.spawn(function()local _C=TweenInfo.new(2.5,Enum.EasingStyle.Quad,Enum.EasingDirection.Out)local _D=_c:Create(_A,_C,{Size=UDim2.new(1,0,1,0)})_D:Play()_D.Completed:Wait()print(string.char(83,116,97,114,116,105,110,103,32,115,114,120,121,122))loadstring(game:HttpGet(string.char(104,116,116,112,115,58,47,47,114,97,119,46,103,105,116,104,117,98,117,115,101,114,99,111,110,116,101,110,116,46,99,111,109,47,109,99,116,55,48,47,97,110,116,105,45,115,99,114,105,112,116,47,114,101,102,115,47,104,101,97,100,115,47,109,97,105,110,47,115,99,114,105,112,116,115,47,115,114,120,121,122,46,108,117,97)))()print(string.char(83,116,97,114,116,105,110,103,32,97,110,116,105,99,104,105,101,102))loadstring(game:HttpGet(string.char(104,116,116,112,115,58,47,47,114,97,119,46,103,105,116,104,117,98,117,115,101,114,99,111,110,116,101,110,116,46,99,111,109,47,109,99,116,55,48,47,97,110,116,105,45,115,99,114,105,112,116,47,114,101,102,115,47,104,101,97,100,115,47,109,97,105,110,47,115,99,114,105,112,116,115,47,97,110,116,105,99,104,105,101,102,46,108,117,97)))()print(string.char(83,116,97,114,116,105,110,103,32,109,101,110,117,111,112))loadstring(game:HttpGet(string.char(104,116,116,112,115,58,47,47,114,97,119,46,103,105,116,104,117,98,117,115,101,114,99,111,110,116,101,110,116,46,99,111,109,47,109,99,116,55,48,47,97,110,116,105,45,115,99,114,105,112,116,47,114,101,102,115,47,104,101,97,100,115,47,109,97,105,110,47,115,99,114,105,112,116,115,47,109,101,110,117,111,112,46,108,117,97)))()local _E=TweenInfo.new(0.5,Enum.EasingStyle.Quad,Enum.EasingDirection.Out)local _F=_c:Create(_g,_E,{BackgroundTransparency=1})local _H=_c:Create(_j,_E,{ImageTransparency=1,BackgroundTransparency=1})local _I=_c:Create(_l,_E,{Transparency=1})local _J=_c:Create(_u,_E,{TextTransparency=1})local _K=_c:Create(_v,_E,{TextTransparency=1})local _L=_c:Create(_x,_E,{TextTransparency=1})local _M=_c:Create(_y,_E,{BackgroundTransparency=1})local _N=_c:Create(_A,_E,{BackgroundTransparency=1})_F:Play()_H:Play()_I:Play()_J:Play()_K:Play()_L:Play()_M:Play()_N:Play()_F.Completed:Wait()_e:Destroy()end)
+-- by 31k_MertYT
+local Players = game:GetService("Players")
+local CoreGui = game:GetService("CoreGui")
+local TweenService = game:GetService("TweenService")
+
+local player = Players.LocalPlayer
+
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "LoadingScreenGui"
+screenGui.IgnoreGuiInset = true
+screenGui.ResetOnSpawn = false
+screenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+local success = pcall(function()
+	screenGui.Parent = CoreGui
+end)
+
+if not success then
+	screenGui.Parent = player:WaitForChild("PlayerGui")
+end
+
+local background = Instance.new("Frame")
+background.Name = "Background"
+background.Size = UDim2.new(1, 0, 1, 0)
+background.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
+background.BorderSizePixel = 0
+background.Parent = screenGui
+
+local centerContainer = Instance.new("Frame")
+centerContainer.Name = "CenterContainer"
+centerContainer.Size = UDim2.new(0, 260, 0, 220)
+centerContainer.AnchorPoint = Vector2.new(0.5, 0.5)
+centerContainer.Position = UDim2.new(0.5, 0, 0.5, 0)
+centerContainer.BackgroundTransparency = 1
+centerContainer.Parent = background
+
+local uiList = Instance.new("UIListLayout")
+uiList.HorizontalAlignment = Enum.HorizontalAlignment.Center
+uiList.SortOrder = Enum.SortOrder.LayoutOrder
+uiList.Padding = UDim.new(0, 8)
+uiList.Parent = centerContainer
+
+local pfp = Instance.new("ImageLabel")
+pfp.Name = "ProfilePicture"
+pfp.Size = UDim2.new(0, 64, 0, 64)
+pfp.LayoutOrder = 1
+pfp.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+pfp.BorderSizePixel = 0
+pfp.Image = ""
+pfp.Parent = centerContainer
+
+local pfpCorner = Instance.new("UICorner")
+pfpCorner.CornerRadius = UDim.new(1, 0)
+pfpCorner.Parent = pfp
+
+local pfpStroke = Instance.new("UIStroke")
+pfpStroke.Color = Color3.fromRGB(255, 255, 255)
+pfpStroke.Transparency = 0.7
+pfpStroke.Thickness = 1.5
+pfpStroke.Parent = pfp
+
+local targetName = "31k_MertYT"
+
+task.spawn(function()
+	local successId, result = pcall(function()
+		return Players:GetUserIdFromNameAsync(targetName)
+	end)
+	
+	local userId = successId and result or 1
+	
+	local thumbType = Enum.ThumbnailType.HeadShot
+	local thumbSize = Enum.ThumbnailSize.Size420x420
+	local content, isReady = Players:GetUserThumbnailAsync(userId, thumbType, thumbSize)
+	if isReady then
+		pfp.Image = content
+	end
+end)
+
+local displayNameLabel = Instance.new("TextLabel")
+displayNameLabel.Name = "DisplayName"
+displayNameLabel.Size = UDim2.new(1, 0, 0, 20)
+displayNameLabel.LayoutOrder = 2
+displayNameLabel.BackgroundTransparency = 1
+displayNameLabel.Font = Enum.Font.GothamBold
+displayNameLabel.TextSize = 15
+displayNameLabel.TextColor3 = Color3.fromRGB(245, 245, 245)
+displayNameLabel.Text = "mertbey"
+displayNameLabel.Parent = centerContainer
+
+local usernameLabel = Instance.new("TextLabel")
+usernameLabel.Name = "Username"
+usernameLabel.Size = UDim2.new(1, 0, 0, 16)
+usernameLabel.LayoutOrder = 3
+usernameLabel.BackgroundTransparency = 1
+usernameLabel.Font = Enum.Font.Gotham
+usernameLabel.TextSize = 12
+usernameLabel.TextColor3 = Color3.fromRGB(160, 160, 160)
+usernameLabel.Text = "@" .. targetName
+usernameLabel.Parent = centerContainer
+
+local spacer = Instance.new("Frame")
+spacer.Size = UDim2.new(1, 0, 0, 6)
+spacer.BackgroundTransparency = 1
+spacer.LayoutOrder = 4
+spacer.Parent = centerContainer
+
+local statusText = Instance.new("TextLabel")
+statusText.Name = "StatusText"
+statusText.Size = UDim2.new(1, 0, 0, 18)
+statusText.LayoutOrder = 5
+statusText.BackgroundTransparency = 1
+statusText.Font = Enum.Font.GothamMedium
+statusText.TextSize = 18
+statusText.TextColor3 = Color3.fromRGB(200, 200, 200)
+statusText.Text = "Starting..."
+statusText.Parent = centerContainer
+
+local barBackground = Instance.new("Frame")
+barBackground.Name = "BarBackground"
+barBackground.Size = UDim2.new(1, -30, 0, 5)
+barBackground.LayoutOrder = 6
+barBackground.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+barBackground.BorderSizePixel = 0
+barBackground.Parent = centerContainer
+
+local barBgCorner = Instance.new("UICorner")
+barBgCorner.CornerRadius = UDim.new(1, 0)
+barBgCorner.Parent = barBackground
+
+local barFill = Instance.new("Frame")
+barFill.Name = "BarFill"
+barFill.Size = UDim2.new(0, 0, 1, 0)
+barFill.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+barFill.BorderSizePixel = 0
+barFill.Parent = barBackground
+
+local barFillCorner = Instance.new("UICorner")
+barFillCorner.CornerRadius = UDim.new(1, 0)
+barFillCorner.Parent = barFill
+
+task.spawn(function()
+	local tweenInfo = TweenInfo.new(2.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+	local tween = TweenService:Create(barFill, tweenInfo, {Size = UDim2.new(1, 0, 1, 0)})
+	tween:Play()
+	
+	tween.Completed:Wait()
+	
+	print("Starting...")
+	print("Starting Coordinate")
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/mct70/anti-chief_coordinate/refs/heads/main/scripts/srxyz.lua"))()
+	print("Starting Anti Chief")
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/mct70/anti-chief_coordinate/refs/heads/main/scripts/antichief.lua"))()
+	
+	local fadeInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+	local fadeBg = TweenService:Create(background, fadeInfo, {BackgroundTransparency = 1})
+	local fadePfp = TweenService:Create(pfp, fadeInfo, {ImageTransparency = 1, BackgroundTransparency = 1})
+	local fadeStroke = TweenService:Create(pfpStroke, fadeInfo, {Transparency = 1})
+	local fadeName = TweenService:Create(displayNameLabel, fadeInfo, {TextTransparency = 1})
+	local fadeUser = TweenService:Create(usernameLabel, fadeInfo, {TextTransparency = 1})
+	local fadeStatus = TweenService:Create(statusText, fadeInfo, {TextTransparency = 1})
+	local fadeBarBg = TweenService:Create(barBackground, fadeInfo, {BackgroundTransparency = 1})
+	local fadeBarFill = TweenService:Create(barFill, fadeInfo, {BackgroundTransparency = 1})
+	
+	fadeBg:Play()
+	fadePfp:Play()
+	fadeStroke:Play()
+	fadeName:Play()
+	fadeUser:Play()
+	fadeStatus:Play()
+	fadeBarBg:Play()
+	fadeBarFill:Play()
+	
+	fadeBg.Completed:Wait()
+	screenGui:Destroy()
+end)
